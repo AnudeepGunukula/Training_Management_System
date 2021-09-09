@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="TrainingDbModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="TrainingDbModelStoreContainer">
+    <EntitySet Name="TrainingDetails" EntityType="TrainingDbModel.Store.TrainingDetails" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Attendences" EntityType="TrainingDbModel.Store.Attendences" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Trainees" EntityType="TrainingDbModel.Store.Trainees" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="TraineeAttendence" Association="TrainingDbModel.Store.TraineeAttendence">
+      <End Role="Trainee" EntitySet="Trainees" />
+      <End Role="Attendence" EntitySet="Attendences" />
+    </AssociationSet>
+    <AssociationSet Name="TrainingDetailsTrainee" Association="TrainingDbModel.Store.TrainingDetailsTrainee">
+      <End Role="TrainingDetails" EntitySet="TrainingDetails" />
+      <End Role="Trainee" EntitySet="Trainees" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="TrainingDetails">
+    <Key>
+      <PropertyRef Name="TrainingId" />
+    </Key>
+    <Property Name="TrainingId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TrainingName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Technology" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ExpectedStartDate" Type="datetime" Nullable="false" />
+    <Property Name="ExpectedDurationInHours" Type="int" Nullable="false" />
+    <Property Name="TotalDuration" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ExpectedEndDate" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="TrainingType" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Attendences">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TraineeName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="TrainingName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Attendance" Type="bit" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="EmpId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Trainees">
+    <Key>
+      <PropertyRef Name="EmpId" />
+    </Key>
+    <Property Name="EmpId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CertificationType" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="TrainingType" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="TrainingFrom" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Score" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IsCertified" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="NumberOfAttempt" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="TrainingId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="TraineeAttendence">
+    <End Role="Trainee" Type="TrainingDbModel.Store.Trainees" Multiplicity="1" />
+    <End Role="Attendence" Type="TrainingDbModel.Store.Attendences" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Trainee">
+        <PropertyRef Name="EmpId" />
+      </Principal>
+      <Dependent Role="Attendence">
+        <PropertyRef Name="EmpId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TrainingDetailsTrainee">
+    <End Role="TrainingDetails" Type="TrainingDbModel.Store.TrainingDetails" Multiplicity="1" />
+    <End Role="Trainee" Type="TrainingDbModel.Store.Trainees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TrainingDetails">
+        <PropertyRef Name="TrainingId" />
+      </Principal>
+      <Dependent Role="Trainee">
+        <PropertyRef Name="TrainingId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TrainingDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="TrainingDbEntities" annotation:LazyLoadingEnabled="true" >
+          <EntitySet Name="TrainingDetails" EntityType="TrainingDbModel.TrainingDetails" />
+          <EntitySet Name="Attendences" EntityType="TrainingDbModel.Attendence" />
+          <EntitySet Name="Trainees" EntityType="TrainingDbModel.Trainee" />
+          <AssociationSet Name="TraineeAttendence" Association="TrainingDbModel.TraineeAttendence">
+            <End Role="Trainee" EntitySet="Trainees" />
+            <End Role="Attendence" EntitySet="Attendences" />
+          </AssociationSet>
+          <AssociationSet Name="TrainingDetailsTrainee" Association="TrainingDbModel.TrainingDetailsTrainee">
+            <End Role="TrainingDetails" EntitySet="TrainingDetails" />
+            <End Role="Trainee" EntitySet="Trainees" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="TrainingDetails">
+          <Key>
+            <PropertyRef Name="TrainingId" />
+          </Key>
+          <Property Name="TrainingId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TrainingName" Type="String" Nullable="false" />
+          <Property Name="Technology" Type="String" Nullable="false" />
+          <Property Name="ExpectedStartDate" Type="DateTime" Nullable="false" />
+          <Property Name="ExpectedDurationInHours" Type="Int32" Nullable="false" />
+          <Property Name="TotalDuration" Type="String" Nullable="false" />
+          <Property Name="ExpectedEndDate" Type="String" Nullable="false" />
+          <Property Name="TrainingType" Type="String" Nullable="false" />
+          <NavigationProperty Name="Trainees" Relationship="TrainingDbModel.TrainingDetailsTrainee" FromRole="TrainingDetails" ToRole="Trainee" />
+        </EntityType>
+        <EntityType Name="Attendence">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+          <Property Name="TraineeName" Nullable="false" Type="String" />
+          <Property Name="TrainingName" Nullable="false" Type="String" />
+          <Property Name="Attendance" Nullable="false" Type="Boolean" />
+          <Property Name="Date" Nullable="false" Type="DateTime" />
+          <NavigationProperty Name="Trainee" Relationship="TrainingDbModel.TraineeAttendence" FromRole="Attendence" ToRole="Trainee" />
+          <Property Name="EmpId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Trainee">
+          <Key>
+            <PropertyRef Name="EmpId" />
+          </Key>
+          <Property Name="EmpId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CertificationType" Type="String" Nullable="false" />
+          <Property Name="TrainingType" Type="String" Nullable="false" />
+          <Property Name="TrainingFrom" Type="String" Nullable="false" />
+          <Property Name="Score" Type="String" Nullable="false" />
+          <Property Name="IsCertified" Type="String" Nullable="false" />
+          <Property Name="NumberOfAttempt" Type="String" Nullable="false" />
+          <NavigationProperty Name="Attendences" Relationship="TrainingDbModel.TraineeAttendence" FromRole="Trainee" ToRole="Attendence" />
+          <NavigationProperty Name="TrainingDetail" Relationship="TrainingDbModel.TrainingDetailsTrainee" FromRole="Trainee" ToRole="TrainingDetails" />
+          <Property Name="TrainingId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="TraineeAttendence">
+          <End Type="TrainingDbModel.Trainee" Role="Trainee" Multiplicity="1" />
+          <End Type="TrainingDbModel.Attendence" Role="Attendence" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trainee">
+              <PropertyRef Name="EmpId" />
+            </Principal>
+            <Dependent Role="Attendence">
+              <PropertyRef Name="EmpId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TrainingDetailsTrainee">
+          <End Type="TrainingDbModel.TrainingDetails" Role="TrainingDetails" Multiplicity="1" />
+          <End Type="TrainingDbModel.Trainee" Role="Trainee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TrainingDetails">
+              <PropertyRef Name="TrainingId" />
+            </Principal>
+            <Dependent Role="Trainee">
+              <PropertyRef Name="TrainingId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TrainingDbModelStoreContainer" CdmEntityContainer="TrainingDbEntities">
+    <EntitySetMapping Name="TrainingDetails">
+      <EntityTypeMapping TypeName="IsTypeOf(TrainingDbModel.TrainingDetails)">
+        <MappingFragment StoreEntitySet="TrainingDetails">
+          <ScalarProperty Name="TrainingId" ColumnName="TrainingId" />
+          <ScalarProperty Name="TrainingName" ColumnName="TrainingName" />
+          <ScalarProperty Name="Technology" ColumnName="Technology" />
+          <ScalarProperty Name="ExpectedStartDate" ColumnName="ExpectedStartDate" />
+          <ScalarProperty Name="ExpectedDurationInHours" ColumnName="ExpectedDurationInHours" />
+          <ScalarProperty Name="TotalDuration" ColumnName="TotalDuration" />
+          <ScalarProperty Name="ExpectedEndDate" ColumnName="ExpectedEndDate" />
+          <ScalarProperty Name="TrainingType" ColumnName="TrainingType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Attendences">
+      <EntityTypeMapping TypeName="IsTypeOf(TrainingDbModel.Attendence)">
+        <MappingFragment StoreEntitySet="Attendences">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TraineeName" ColumnName="TraineeName" />
+          <ScalarProperty Name="TrainingName" ColumnName="TrainingName" />
+          <ScalarProperty Name="Attendance" ColumnName="Attendance" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="EmpId" ColumnName="EmpId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Trainees">
+      <EntityTypeMapping TypeName="IsTypeOf(TrainingDbModel.Trainee)">
+        <MappingFragment StoreEntitySet="Trainees">
+          <ScalarProperty Name="EmpId" ColumnName="EmpId" />
+          <ScalarProperty Name="CertificationType" ColumnName="CertificationType" />
+          <ScalarProperty Name="TrainingType" ColumnName="TrainingType" />
+          <ScalarProperty Name="TrainingFrom" ColumnName="TrainingFrom" />
+          <ScalarProperty Name="Score" ColumnName="Score" />
+          <ScalarProperty Name="IsCertified" ColumnName="IsCertified" />
+          <ScalarProperty Name="NumberOfAttempt" ColumnName="NumberOfAttempt" />
+          <ScalarProperty Name="TrainingId" ColumnName="TrainingId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
