@@ -1,4 +1,8 @@
 
+
+create database TrainingDb
+
+
 use TrainingDb
 
 
@@ -12,13 +16,13 @@ insert into TrainingDetails values('Javascript_Training','Javascript','2021-08-0
 select * from TrainingDetails;
 
 
-insert into Trainees values('microsoft','Fulltime','2021-08-08',100,0,1,3)
+insert into Trainees values('microsoft','Fulltime','2021-08-08',100,0,1,1)
 
-insert into Trainees values('oracle','Fulltime','2021-08-01',100,0,1,4)
+insert into Trainees values('oracle','Fulltime','2021-08-01',100,0,1,2)
 
 select * from Trainees
 
-insert into Attendences values ('karthik','DotNet_Training',1,'2021-08-08',1)
+insert into Attendences values ('karthik','DotNet_Training',1,'2021-08-08',2)
 
 insert into Attendences values ('Narendra','Javascript_Training',1,'2021-08-01',3)
 
@@ -72,3 +76,81 @@ exec deleteTrainingDetails @trainingId=6
 
 
 -----------------------------------------------------------------------------------------------------------------------
+
+
+create procedure selectTrainees 
+as 
+select * from Trainees;
+ 
+exec selectTrainees
+ 
+ 
+ 
+ 
+Create procedure insertTrainees  @CertificationType nvarchar(max) , @TrainingType nvarchar(max), @TrainingFrom nvarchar(max),@Score int,@IsCertified bit,@NumberOfAttempt int,@TrainingId int
+as
+insert into Trainees([CertificationType],[TrainingType],[TrainingFrom],[Score],[IsCertified],[NumberOfAttempt],[TrainingId]) values 
+(@CertificationType,@TrainingType,@TrainingFrom,@Score,@IsCertified,@NumberOfAttempt,@TrainingId)
+ 
+
+exec insertTrainees @CertificationType='test',@TrainingType='.test',@TrainingFrom='2021-08-08',@Score=384,@IsCertified=1,@NumberOfAttempt=3,@TrainingId=1;
+ 
+ 
+Create procedure updateTrainees @EmpId int, @CertificationType nvarchar(max) , @TrainingType nvarchar(max), @TrainingFrom nvarchar(max),@Score int,@IsCertified bit,@NumberOfAttempt int,@TrainingId int
+as
+update Trainees set [CertificationType]=@CertificationType,[TrainingType]=@TrainingType,[TrainingFrom]=@TrainingFrom,[Score]=@Score,[IsCertified]=@IsCertified,
+  [NumberOfAttempt]=@NumberOfAttempt,[TrainingId]=@TrainingId where [EmpId]=@EmpId;
+ 
+
+exec updateTrainees   @CertificationType='test',@TrainingType='.test',@TrainingFrom='2021-08-08',@Score=22222,@IsCertified=1,@NumberOfAttempt=3,@TrainingId=1,@EmpId=5;
+ 
+ 
+create procedure deleteTrainees  @EmpId int
+as
+delete from Trainees where [EmpId]=@EmpId;
+  
+exec deleteTrainees @EmpId=5
+ 
+
+
+ --------------------------------------------------------------------------------------------------------------------------------------------
+
+
+ create procedure selectAttendences 
+as 
+select * from Attendences;
+ 
+exec selectAttendences
+ 
+ 
+ 
+Create procedure insertAttendences  @TraineeName nvarchar(30) , @TrainingName nvarchar(30), @Attendance bit ,@Date DateTime,@EmpId int
+as
+insert into Attendences([TraineeName],[TrainingName],[Attendance],[Date],[EmpId]) values 
+(@TraineeName,@TrainingName,@Attendance,@Date,@EmpId)
+ 
+ 
+exec insertAttendences @TraineeName='kartikeya',@TrainingName='Javascript_Training',@Attendance=1,@Date='2021-08-08',@EmpId=2;
+ 
+ 
+Create procedure updateAttendences   @TraineeName nvarchar(30) , @TrainingName nvarchar(30), @Attendance bit ,@Date DateTime,@EmpId int,@Id int
+as
+update Attendences set [TraineeName]=@TraineeName,[TrainingName]=@TrainingName,[Attendance]=@Attendance,[Date]=@Date,[EmpId]=@EmpId where [Id]=@Id;
+ 
+ select * from Attendences
+ 
+exec updateAttendences  @TraineeName='gupta',@TrainingName='.Javascript_Training',@Attendance=1,@Date='2021-08-01',@EmpId=3,@Id=4;
+ 
+ 
+ 
+create procedure deleteAttendences  @Id int
+as
+delete from Attendences where [Id]=@Id;
+ 
+ 
+exec deleteAttendences @Id=4
+-----------------------------------------------------------------------------------------------------------------------------------------
+ 
+ 
+ 
+
