@@ -24,13 +24,13 @@ namespace Training_Management_System.Models
         public string CertificationType { get; set; }
         public string TrainingType { get; set; }
         public string TrainingFrom { get; set; }
-        public string Score { get; set; }
-        public string IsCertified { get; set; }
-        public string NumberOfAttempt { get; set; }
+        public int Score { get; set; }
+        public bool IsCertified { get; set; }
+        public int NumberOfAttempt { get; set; }
         public int TrainingId { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Attendence> Attendences { get; set; }
-        public virtual TrainingDetails TrainingDetail { get; set; }
+        public virtual TrainingDetail TrainingDetail { get; set; }
     }
 }

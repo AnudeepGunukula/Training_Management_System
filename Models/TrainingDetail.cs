@@ -12,10 +12,10 @@ namespace Training_Management_System.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class TrainingDetails
+    public partial class TrainingDetail
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public TrainingDetails()
+        public TrainingDetail()
         {
             this.Trainees = new HashSet<Trainee>();
         }
@@ -26,7 +26,7 @@ namespace Training_Management_System.Models
         public System.DateTime ExpectedStartDate { get; set; }
         public int ExpectedDurationInHours { get; set; }
         public string TotalDuration { get; set; }
-        public string ExpectedEndDate { get; set; }
+        public System.DateTime ExpectedEndDate { get; set; }
         public string TrainingType { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

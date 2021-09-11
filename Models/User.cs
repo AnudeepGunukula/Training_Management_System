@@ -11,19 +11,12 @@ namespace Training_Management_System.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
-    public partial class Attendence
-    {
-        public int Id { get; set; }
-        public string TraineeName { get; set; }
-        public string TrainingName { get; set; }
-        public bool Attendance { get; set; }
-
-        [DataType(DataType.Date)]
-        public System.DateTime Date { get; set; }
-        public int EmpId { get; set; }
     
-        public virtual Trainee Trainee { get; set; }
+    public partial class User
+    {
+        public int UserId { get; set; }
+        public string UserName { get; set; }
+        public string Password { get; set; }
+        public string role { get; set; }
     }
 }

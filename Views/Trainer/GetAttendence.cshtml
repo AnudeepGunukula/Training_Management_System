@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Training_Management_System.Models.Attendence>
+
+@{
+    ViewBag.Title = "GetAttendence";
+}
+
+<h2>GetAttendence</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TraineeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TrainingName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Attendance)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmpId)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TraineeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TrainingName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Attendance)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmpId)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "UpdateAttendence", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

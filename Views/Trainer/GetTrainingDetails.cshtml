@@ -1,0 +1,69 @@
+﻿@model IEnumerable<Training_Management_System.Models.TrainingDetail>
+
+@{
+    ViewBag.Title = "GetTrainingDetails";
+}
+
+<h2>GetTrainingDetails</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TrainingName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Technology)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExpectedStartDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExpectedDurationInHours)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalDuration)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExpectedEndDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TrainingType)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TrainingName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Technology)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ExpectedStartDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ExpectedDurationInHours)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalDuration)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ExpectedEndDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TrainingType)
+        </td>
+        @*<td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.TrainingId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.TrainingId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.TrainingId })
+        </td>*@
+    </tr>
+}
+
+</table>

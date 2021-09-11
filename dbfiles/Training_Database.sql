@@ -1,8 +1,10 @@
 
 
+drop database TrainingDb
+
 create database TrainingDb
 
-
+use sunnyleone
 use TrainingDb
 
 
@@ -24,7 +26,7 @@ select * from Trainees
 
 insert into Attendences values ('karthik','DotNet_Training',1,'2021-08-08',2)
 
-insert into Attendences values ('Narendra','Javascript_Training',1,'2021-08-01',3)
+insert into Attendences values ('Narendra','Javascript_Training',1,'2021-08-01',1)
 
 
 select * from Attendences
@@ -148,9 +150,18 @@ as
 delete from Attendences where [Id]=@Id;
  
  
-exec deleteAttendences @Id=4
+exec deleteAttendences @Id=7
 -----------------------------------------------------------------------------------------------------------------------------------------
  
- 
- 
+ CREATE TABLE [dbo].[Users] (
+    [UserId] int IDENTITY(1,1) NOT NULL,
+    [UserName] nvarchar(max)  NOT NULL,
+    [Password] nvarchar(max)  NOT NULL,
+    [role] nvarchar(max)  NOT NULL
+);
 
+create procedure checkUsers @username varchar(30),@password varchar(30)
+as
+select * from Users where [UserName]=@username and [Password]=@password
+
+exec checkUsers @username='guptha',@password='guptha'

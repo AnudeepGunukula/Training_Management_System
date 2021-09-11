@@ -13,10 +13,10 @@ namespace Training_Management_System.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class TrainingDbEntities : DbContext
+    public partial class TrainingDbEntities1 : DbContext
     {
-        public TrainingDbEntities()
-            : base("name=TrainingDbEntities")
+        public TrainingDbEntities1()
+            : base("name=TrainingDbEntities1")
         {
         }
     
@@ -25,8 +25,9 @@ namespace Training_Management_System.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<TrainingDetails> TrainingDetails { get; set; }
         public virtual DbSet<Attendence> Attendences { get; set; }
         public virtual DbSet<Trainee> Trainees { get; set; }
+        public virtual DbSet<TrainingDetail> TrainingDetails { get; set; }
+        public virtual DbSet<User> Users { get; set; }
     }
 }

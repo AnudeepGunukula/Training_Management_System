@@ -4,12 +4,13 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="db0bc7419418439c97a9e11a98966377" Name="Diagram1" >
-        <EntityTypeShape EntityType="TrainingDbModel.TrainingDetails" Width="1.5" PointX="6" PointY="7.375" />
-        <EntityTypeShape EntityType="TrainingDbModel.Attendence" PointX="9.125" PointY="4.75" Width="1.5" />
-        <EntityTypeShape EntityType="TrainingDbModel.Trainee" Width="1.5" PointX="2.125" PointY="6" IsExpanded="true" />
-        <AssociationConnector Association="TrainingDbModel.TraineeAttendence" />
-        <AssociationConnector Association="TrainingDbModel.TrainingDetailsTrainee" />
+      <Diagram DiagramId="0923f0ec43ff4b219f276fc645816a10" Name="Diagram1" ZoomLevel="85">
+        <EntityTypeShape EntityType="TrainingDbModel.Attendence" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrainingDbModel.Trainee" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrainingDbModel.TrainingDetail" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrainingDbModel.User" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <AssociationConnector Association="TrainingDbModel.FK_TraineeAttendence" ManuallyRouted="false" />
+        <AssociationConnector Association="TrainingDbModel.FK_TrainingDetailsTrainee" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
