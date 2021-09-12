@@ -11,7 +11,8 @@ namespace Training_Management_System.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class TrainingDetail
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -23,9 +24,11 @@ namespace Training_Management_System.Models
         public int TrainingId { get; set; }
         public string TrainingName { get; set; }
         public string Technology { get; set; }
+        [DataType(DataType.Date)]
         public System.DateTime ExpectedStartDate { get; set; }
         public int ExpectedDurationInHours { get; set; }
         public string TotalDuration { get; set; }
+        [DataType(DataType.Date)]
         public System.DateTime ExpectedEndDate { get; set; }
         public string TrainingType { get; set; }
     

@@ -1,0 +1,82 @@
+﻿@model Training_Management_System.Models.TrainingDetail
+
+@{
+    ViewBag.Title = "DetailsTrainingDetails";
+}
+
+<h2>DetailsTrainingDetails</h2>
+
+<div>
+    <h4>TrainingDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TrainingId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TrainingId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TrainingName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TrainingName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Technology)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Technology)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExpectedStartDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExpectedStartDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExpectedDurationInHours)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExpectedDurationInHours)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalDuration)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalDuration)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExpectedEndDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExpectedEndDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TrainingType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TrainingType)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "updateTrainingDetails", new { Id = Model.TrainingId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

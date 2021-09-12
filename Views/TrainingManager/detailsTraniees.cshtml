@@ -1,0 +1,82 @@
+﻿@model Training_Management_System.Models.Trainee
+
+@{
+    ViewBag.Title = "detailsTraniees";
+}
+
+<h2>detailsTraniees</h2>
+
+<div>
+    <h4>Trainee</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.EmpId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmpId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CertificationType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CertificationType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TrainingType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TrainingType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TrainingFrom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TrainingFrom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Score)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Score)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsCertified)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsCertified)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumberOfAttempt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumberOfAttempt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TrainingId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TrainingId)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "updateTrainees", new { id=Model.EmpId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

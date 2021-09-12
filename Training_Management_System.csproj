@@ -130,6 +130,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TrainerController.cs" />
+    <Compile Include="Controllers\TrainingManagerController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -220,6 +221,15 @@
     <Content Include="Views\Trainer\InsertAttendence.cshtml" />
     <Content Include="Views\Trainer\UpdateAttendence.cshtml" />
     <Content Include="Views\Trainer\DetailsAttendence.cshtml" />
+    <Content Include="Views\TrainingManager\insertTrainingDetails.cshtml" />
+    <Content Include="Views\TrainingManager\GetTrainingDetails.cshtml" />
+    <Content Include="Views\TrainingManager\updateTrainingDetails.cshtml" />
+    <Content Include="Views\TrainingManager\DetailsTrainingDetails.cshtml" />
+    <Content Include="Views\TrainingManager\deleteTrainingDetails.cshtml" />
+    <Content Include="Views\TrainingManager\GetTrainees.cshtml" />
+    <Content Include="Views\TrainingManager\insertTrainees.cshtml" />
+    <Content Include="Views\TrainingManager\updateTrainees.cshtml" />
+    <Content Include="Views\TrainingManager\detailsTraniees.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

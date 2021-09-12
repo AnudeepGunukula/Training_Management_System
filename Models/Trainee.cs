@@ -11,7 +11,8 @@ namespace Training_Management_System.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Trainee
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -23,7 +24,9 @@ namespace Training_Management_System.Models
         public int EmpId { get; set; }
         public string CertificationType { get; set; }
         public string TrainingType { get; set; }
-        public string TrainingFrom { get; set; }
+
+        [DataType(DataType.Date)]
+        public System.DateTime TrainingFrom { get; set; }
         public int Score { get; set; }
         public bool IsCertified { get; set; }
         public int NumberOfAttempt { get; set; }
@@ -32,5 +35,7 @@ namespace Training_Management_System.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Attendence> Attendences { get; set; }
         public virtual TrainingDetail TrainingDetail { get; set; }
+
+        public string TrainingName;
     }
 }
