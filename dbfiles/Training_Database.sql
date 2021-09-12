@@ -82,8 +82,12 @@ exec deleteTrainingDetails @trainingId=6
 
 create procedure selectTrainees 
 as 
-select * from Trainees;
- 
+ SELECT Trainees.EmpId, Trainees.CertificationType,Trainees.TrainingType,Trainees.TrainingFrom,Trainees.Score,Trainees.IsCertified,Trainees.NumberOfAttempt,Trainees.TrainingId,TrainingDetails.TrainingName
+FROM Trainees, TrainingDetails
+WHERE Trainees.TrainingId = TrainingDetails.TrainingId
+
+drop procedure selectTrainees
+
 exec selectTrainees
  
  
