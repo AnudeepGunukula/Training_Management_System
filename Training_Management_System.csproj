@@ -219,6 +219,7 @@
     <Content Include="Views\Trainer\GetAttendence.cshtml" />
     <Content Include="Views\Trainer\InsertAttendence.cshtml" />
     <Content Include="Views\Trainer\UpdateAttendence.cshtml" />
+    <Content Include="Views\Trainer\DetailsAttendence.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

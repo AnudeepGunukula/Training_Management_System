@@ -154,6 +154,38 @@ namespace Training_Management_System.Controllers
             return View("GetAttendence", AttendenceList());
         }
 
+
+        [HttpGet]
+        public ActionResult DeleteAttendence(int Id)
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["TrainingDbEntities"].ToString();
+            SqlConnection conn = new SqlConnection(connectionString);
+            string cmdtext = "DeleteAttendences";
+            SqlCommand cmd = new SqlCommand(cmdtext, conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@Id", Id);
+            conn.Open();
+            cmd.ExecuteNonQuery();
+
+            return View("GetAttendence", AttendenceList());
+        }
+       
+      
+        [HttpGet]
+        public ActionResult DetailsAttendence(int Id)
+        {
+            Attendence attendenceobj = null;
+            List<Attendence> attendencelist = AttendenceList();
+            foreach (var i in attendencelist)
+            {
+                if (i.Id == Id)
+                {
+                    attendenceobj = i;
+                }
+            }
+            return View(attendenceobj);
+        }
+
     }
 
 
