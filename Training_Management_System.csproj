@@ -230,6 +230,9 @@
     <Content Include="Views\TrainingManager\insertTrainees.cshtml" />
     <Content Include="Views\TrainingManager\updateTrainees.cshtml" />
     <Content Include="Views\TrainingManager\detailsTraniees.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\TrainingManager\Index.cshtml" />
+    <Content Include="Views\Trainer\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
